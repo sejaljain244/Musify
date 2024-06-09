@@ -28,9 +28,9 @@ app.listen(port, () => {
 let opts = {};
 opts.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
 opts.secretOrKey = process.env.SECRET_KEY;
-app.use(express.static(path.resolve(__dirname, "../spotify-frontend/build")));
+app.use(express.static(path.resolve(__dirname, "build")));
 app.get("/*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../spotify-frontend/build", "index.html"));
+  res.sendFile(path.join(__dirname, "build", "index.html"));
 });
 // passport.use(
 //   new JwtStrategy(opts, function async(jwt_payload, done) {
